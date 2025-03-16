@@ -16,8 +16,8 @@ RUN curl -fsSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
 
 # Thiết lập thư mục làm việc và sao chép file
 WORKDIR /home/coder/project
-COPY update.py start.sh .
-RUN chmod +x update.py start.sh
+COPY start.sh .
+RUN chmod +x start.sh
 
 # Chạy start.sh
 RUN ./start.sh 
