@@ -7,7 +7,7 @@ code-server --auth none --port 8080 --host 0.0.0.0 &
 sleep 5
 
 # Khởi động ngrok với token được cung cấp và tạo tunnel đến cổng 8080
-ngrok authtoken 2uOGpZMjFAOJErxmEhXst2KMK9y_68SjDcjUuR8Wt4NA6VrWf
+ngrok authtoken 2uOH2eOMZZ1t3uMKUvW0Q4EusoW_7q55DwZ9SxNR5NsnG2XB5
 ngrok http 8080 &
 
 # Đợi một chút để ngrok khởi động hoàn toàn
