@@ -18,7 +18,8 @@ public_url=$(curl -s http://127.0.0.1:4040/api/tunnels | grep -o 'https://[^"]*'
 echo "Public URL của ngrok: $public_url"
 
 # Tính thời gian còn lại trước khi chạy update.py
-total_seconds=1740  # 29 phút = 1740 giây
+total_seconds=2592000  # 30 ngày = 2.592.000 giây
+
 while [ $total_seconds -gt 0 ]; do
     hours=$((total_seconds / 3600))
     minutes=$(( (total_seconds % 3600) / 60 ))
@@ -27,5 +28,8 @@ while [ $total_seconds -gt 0 ]; do
     sleep 1
     total_seconds=$((total_seconds - 1))
 done
+
+
+
 
 
