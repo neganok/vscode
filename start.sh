@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 # Khởi động code-server ở chế độ nền
 code-server --auth none --port 8080 --host 0.0.0.0 &
