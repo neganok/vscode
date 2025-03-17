@@ -1,0 +1,42 @@
+pipeline:
+  name: Sample Build Pipeline
+  identifier: Sample_Build_Pipeline
+  projectIdentifier: MyProject
+  orgIdentifier: MyOrg
+  tags: {}
+  stages:
+    - stage:
+        name: Build Stage
+        identifier: Build_Stage
+        description: "Build application"
+        type: CI
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: Build Application
+                  identifier: Build_App
+                  type: Run
+                  spec:
+                    shell: Bash
+                    command: |
+                      echo "Starting Build..."
+                      mvn clean package -DskipTests
+                      echo "Build Completed!"
+              - step:
+                  name: Upload Artifact
+                  identifier: Upload_Artifact
+                  type: ArtifactoryUpload
+                  spec:
+                    target: "my-repository/path/to/artifact.jar"
+                    sourcePath: "target/my-app.jar"
+                    repository: "my-repository"
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: MyKubernetesConnector
+              namespace: my-namespace
+              resources:
+                limits:
+                  memory: "2Gi"
+                  cpu: "1"
